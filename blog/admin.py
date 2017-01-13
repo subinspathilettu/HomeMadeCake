@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Post
+from .models import Cake
 
-admin.site.register(Post)
+admin.site.register(Cake)
