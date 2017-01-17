@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Made Cake</title>
-    <style>
-    .column{
-    float: left;
-    width: 23%;
-    height: 500px;
-    margin: 1%;
-    max-width: 100%;
-    overflow: hidden;}
-    </style>
-</head>
-<body style="background:#ECEDE8">
-    <div>
-        <p style="color:blue; font-size:36px;" align=center>Home Made Cake</p>
-    </div> 
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for cake in cakes %}
-    <div class="column">
-        <h1 style="color:red">{{ cake.title}}</h1>
-        <p style="color:blue">{{ cake.image|linebreaksbr }}</p>
-        <img src="http://i4.fnp.com/images/pr/l/special-delicious-celebration-cake-1kg_1.jpg">
-    </div>
+        <div class = "column">
+            <a href= "{% url 'cake_details' pk=cake.pk %}" class="fill-div">
+                <img src = "{{ cake.image.url }}" alt="{{ cake.title }}" width=100%; height=75%;>
+                <p class = "title" style = "color: #FCA205;"><b>{{ cake.title }}</b></p>
+                <p class = "title">Vendor: {{ cake.vendor.first_name }} {{ cake.vendor.last_name }}</p>
+                <p class = "title">Price: <b>₹{{ cake.price }}</b></p>
+            </a>
+        </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
