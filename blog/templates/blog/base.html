@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <style>
     .column {
     float: left;
@@ -13,7 +15,30 @@
     overflow: hidden;
 }
 
-.title{
+.details-column {
+    float: left;
+    width: 45%;
+    height: 100%;
+    margin: 1%;
+    max-width: 100%;
+    border-color: #CACACA;
+    overflow: hidden;
+}
+.margin-15 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5ec830;
+    border-color: transparent;
+    border-radius: 3pt;
+    font-size: 19px;
+    padding: 14px 50px;
+}
+
+.title {
         width: 100%;
         height: 5%;
         margin: 0px 0px 0px 10px;
@@ -33,9 +58,6 @@ a.fill-div {
     </style>
 </head>
 <body style="background:#ECEDE8">
-    <div>
-        <p style="color:blue; font-size:30px; background:#CCC;" align=center><b>Home Made Cake</b></p>
-    </div>
     {% block content %}
     {% endblock %}
 </body>
