@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Add Cake</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" enctype="multipart/form-data" class="post-form" style="margin: 10px">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>

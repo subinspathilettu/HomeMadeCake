@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
@@ -10,4 +12,4 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^register/$', views.register, name='register'),
     url(r'^accounts/profile/$',  views.profile, name='profile'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
