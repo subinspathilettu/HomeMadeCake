@@ -1,14 +1,18 @@
 
 {% extends 'blog/base.html' %}
 {% block content %}
-    {% for cake in cakes %}
-        <div class = "column">
-            <a href= "{% url 'cake_details' pk=cake.pk %}" class="fill-div">
-                <img src = "{{ cake.image.url }}" alt="{{ cake.title }}" class="img-circle" width=100%; height=75%;>
-                <p class = "title" style = "color: #FCA205;"><b>{{ cake.title }}</b></p>
-                <p class = "title">Vendor: {{ cake.vendor.first_name }} {{ cake.vendor.last_name }}</p>
-                <p class = "title">Price: <b>₹{{ cake.price }}</b></p>
-            </a>
+    <div class="row">
+        {% for cake in cakes %}
+        <div class="col-md-4">
+            <div class = "column">
+                <a href= "{% url 'cake_details' pk=cake.pk %}" class="fill-div">
+                    <img src = "{{ cake.image.url }}" alt="{{ cake.title }}" class="img-circle" width=100%; height=75%;>
+                    <h4 class = "title" style = "color: #FCA205;" align=center> <b>{{ cake.title }}</b></h4>
+                    <p class = "title" align=center >Vendor: {{ cake.vendor.first_name }} {{ cake.vendor.last_name }}</p>
+                    <p class = "title" align=center >Price: <b>₹{{ cake.price }}</b></p>
+                </a>
+            </div>
         </div>
-    {% endfor %}
+         {% endfor %}
+    </div>
 {% endblock %}

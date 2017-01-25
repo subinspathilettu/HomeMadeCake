@@ -28,7 +28,7 @@ def cake_new(request):
 def profile(request):
     if request.user.is_authenticated:
         cakes = Cake.objects.filter(vendor=request.user)
-        return render(request, 'blog/profile.html', {'cakes' : cakes})
+        return render(request, 'blog/post_list.html', {'cakes' : cakes})
     else:
         return post_list(request)
 
