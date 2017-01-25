@@ -3,6 +3,7 @@ from .models import Cake
 from django.contrib.auth.models import User
 from .forms import CakeForm, RegisterForm
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth import authenticate, login
 
 def post_list(request):
     cakes = Cake.objects.all()
@@ -44,4 +45,17 @@ def register(request):
             return post_list(request)
     else:
         registerForm = RegisterForm()
-    return render(request, 'blog/register.html', {'form': registerForm}) 
+    return render(request, 'blog/register.html', {'form': registerForm})
+
+def vendor_login(request):
+    if request.method == "POST":
+        username = request.POST.get("username", "")
+        password = request.POST.get("password", "")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return profile(request)
+        else:
+            return render(request, 'registration/login.html', {'error':'error occured'})
+    else:
+        return render(request, 'registration/login.html', {})
