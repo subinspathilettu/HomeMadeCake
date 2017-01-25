@@ -1,15 +1,9 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-
-<div class="page-header">
-    <p class="h1" style="margin:0px 10px 0px 20px; color:#2E68A9; width:100%;">Home Made Cake</p>
-    <a href="{% url 'logout' %}?next=/" class="btn btn-primary btn-md" style="margin:10px 0px 0px 20px;">Logout</a>
-    <a href="{% url 'cake_new' %}?next=/" class="btn btn-primary btn-md" style="margin:10px 0px 0px 20px;">Add Cake</a>
-</div>
     {% for cake in cakes %}
         <div class = "column">
             <a href= "{% url 'cake_details' pk=cake.pk %}" class="fill-div">
-                <img src = "{{ cake.image.url }}" alt="{{ cake.title }}" width=100%; height=75%;>
+                <img src = "{{ cake.image.url }}" alt="{{ cake.title }}" class="img-circle" width=100%; height=75%;>
                 <p class = "title" style = "color: #FCA205;"><b>{{ cake.title }}</b></p>
                 <p class = "title">Vendor: {{ cake.vendor.first_name }} {{ cake.vendor.last_name }}</p>
                 <p class = "title">Price: <b>₹{{ cake.price }}</b></p>

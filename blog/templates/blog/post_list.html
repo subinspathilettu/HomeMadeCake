@@ -1,16 +1,6 @@
 
 {% extends 'blog/base.html' %}
 {% block content %}
-
-<div class="page-header">
-    <p class="h1" style="margin:0px 10px 0px 20px; color:#2E68A9; width:100%;">Home Made Cake</p>
-    {% if user.is_authenticated %}
-        <a style = "margin:10px 0px 0px 20px;" href= "{% url 'profile' %}">Welcome {{ user.username }} !!!</a>   
-    {% else %}
-        <a href="{% url 'login' %}" class="btn btn-primary btn-md" style="margin:10px 0px 0px 20px;">Vendor Login</a>
-        <a href="{% url 'register' %}" class="btn btn-primary btn-md" style="margin:10px 0px 0px 20px;">Vendor Register</a>
-    {% endif %}
-</div>
     {% for cake in cakes %}
         <div class = "column">
             <a href= "{% url 'cake_details' pk=cake.pk %}" class="fill-div">
